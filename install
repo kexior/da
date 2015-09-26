@@ -8,7 +8,7 @@ function pause(){
 }
 
 function welcome(){
-  echo -e "Witaj w instalatorze skina!"
+  echo -e "Welcome to einDa-skin installer."
 }
 
 function bar(){
@@ -20,21 +20,21 @@ function bar(){
 function login(){
   cd /usr/local/directadmin/data/templates/
   rm $login
-  wget https://github.com/kexior/da/master/utils/login/login.html
+  wget https://raw.githubusercontent.com/smicroz/einDa-skin/master/utils/login/login.html
 }
 
 # skin functions
 
 function end(){
   bar
-  echo "Gratulacje!!, kexiorTheme zosta poprawnie zainstalowany!"
+  echo "Congratulations!!, einDa-skin was installed"
   bar
-  echo "Teraz przejdź do DA i"
-  echo "1 | Wejdź na konto admina"
-  echo "2 | Poziom reseller -> Menadżer szablonów"
-  echo "3 | Wybierz kexior :)!"
+  echo "Now go to http://yourdomain:2222 and"
+  echo "1 | Join admin account"
+  echo "2 | As reseller, go to the skin manager"
+  echo "3 | Select einDa-skin and apply to me"
   bar
-  echo "Dziekujemy."
+  echo "Thanks for using einDa skin"
   bar
 }
 
@@ -43,13 +43,13 @@ function joinFolder(){
 }
 
 function install(){
-  echo "Instalacja..."
-  git clone https://github.com/kexior/da.git
-  chown -R diradmin:diradmin kexior/
+  echo "Installing..."
+  git clone https://github.com/smicroz/einDa-skin.git
+  chown -R diradmin:diradmin einDa-skin/
 }
 
 function update(){
-  echo "Aktualzizacja..."
+  echo "Updating..."
   git reset --hard
   git pull
   chown -R diradmin:diradmin *
@@ -63,20 +63,20 @@ bar
 
 joinFolder
 
-directory=kexior
+directory=einDa-skin
 login=./login.html
 
 if [ -d "$directory" ]; then
-  echo "Folder kexior już istnieje"
+  echo "The directory einDa-skin already exists"
   echo -e "\x1B[31m == UPDATE == \x1B[0m"
-  pause 'Kliknij enter, aby zaktualizować.'
+  pause 'If you want update the skin, press [Enter] key for continue...'
   cd $directory/
   update
   # install login template
   login
   
 else
-  pause 'Kliknij enter, aby rozpoczać instalacje.'
+  pause 'Press [Enter] key for start installation...'
   install
   end
 fi
