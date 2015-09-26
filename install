@@ -1,0 +1,83 @@
+#!/bin/bash
+
+
+# general functions
+
+function pause(){
+  read -p "$*"
+}
+
+function welcome(){
+  echo -e "Witaj w instalatorze skórki do DA - KeeX.pl"
+}
+
+function bar(){
+  echo "========================================"
+}
+
+# login functions
+
+function login(){
+  cd /usr/local/directadmin/data/templates/
+  rm $login
+  wget https://raw.githubusercontent.com/smicroz/einDa-skin/master/utils/login/login.html
+}
+
+# skin functions
+
+function end(){
+  bar
+  echo "Gratulacje! Poprawnie zainstalowałeś nową skórkę."
+  bar
+  echo "Teraz wejdź do panelu DirectAdmin"
+  echo "1 | Połącz z kontem administratora."
+  echo "2 | Wejdź w Reseller -> Menadżer szablonów"
+  echo "3 | Wybierz keexior i zastosuj dla siebie."
+  bar
+  echo "Dziękujemy za użycie skina Kexior :)."
+  bar
+}
+
+function joinFolder(){
+  cd /usr/local/directadmin/data/skins/
+}
+
+function install(){
+  echo "Instaluję..."
+  git clone https://github.com/kexior/kexior.git
+  chown -R diradmin:diradmin kexior/
+}
+
+function update(){
+  echo "Updating..."
+  git reset --hard
+  git pull
+  chown -R diradmin:diradmin *
+}
+
+# innit
+
+bar
+welcome
+bar
+
+joinFolder
+
+directory=einDa-skin
+login=./login.html
+
+if [ -d "$directory" ]; then
+  echo "Taki folder już istnieje!"
+  echo -e "\x1B[31m == UPDATE == \x1B[0m"
+  pause 'Jeśli chcesz zaktualizować skin, wciśnij [Enter] aby kontynuować...'
+  cd $directory/
+  update
+  # install login template
+  login
+  
+else
+  pause 'Klikij [Enter] w celu rozpoczęcia procesu instalacji...'
+  install
+  end
+fi
+

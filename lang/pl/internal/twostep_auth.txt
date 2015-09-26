@@ -1,0 +1,30 @@
+1=%s nie istnieje.
+2=Nie można odczytać danych z %s
+3=Nie udało się uzyskać blokady na %s
+4=Błąd zapisu %s: %s
+5=%s %s został zablokowany w %s, aby zapobiec kolejnym próbom na koncie.
+6=Ostrzeżenie:% s poprawne hasło dla %s, ale nie udało dwuetapowej kod uwierzytelniania% s razy.
+7=IP %s dostarcza poprawne hasło dla %s konta. %C However, po %s prób, nie byli w stanie zapewnić prawidłowy kod uwierzytelniania dwuetapowy, więc nie ma dostępu została przyznana.%C Jeśli to nie jest Twój IP, zmienić swoje hasło. %s
+8=dwuetapowej autoryzacji tajemnicą nie jest ustawiony.
+9=<b> Wprowadź kod dwustopniowego uwierzytelniania </b>
+10=Zatwierdź
+11=Kod
+12=%s Your IP będzie na czarnej liście
+13=Nieprawidłowy kod dwustopniowej autoryzacji
+14=Kody Scratch
+15=Data utworzenia
+16=Wybierz
+17=Usuń
+18=Dodaj Kody
+19=Nowy Tajne Set: <span class = code_edit> %s </ span> Największa Pamiętaj, aby ponownie zeskanować kod QR, tak jak wszystkie stare kody stają się nieważne.
+20=Ważny
+21=Pobierz kod z aplikacji w telefonie, lub użyć kodu zapasowej na zarysowania.
+22=Nie
+23=%s Day (s)
+24=%s Tydzień (s)
+25=%s miesiąc (e)
+26=Wygasa
+27=Nieprawidłowe znaki w opisie. Dozwolone %s
+28=Drukuj
+29= Kod jest ważny, ale w innym czasie. Największa Sprawdź czas zarówno na serwerze i telefonu. Największa różnica plaster czas = %d Największa
+30=%s Zaufanie to urządzenie dla %d dni
