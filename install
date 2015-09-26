@@ -1,6 +1,7 @@
 #!/bin/bash
 
 
+<!DOCTYPE html>
 # general functions
 
 function pause(){
