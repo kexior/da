@@ -8,7 +8,7 @@ function pause(){
 }
 
 function welcome(){
-  echo -e "Welcome to einDa-skin installer."
+  echo -e "Witaj w instalatorze skina!"
 }
 
 function bar(){
@@ -20,21 +20,21 @@ function bar(){
 function login(){
   cd /usr/local/directadmin/data/templates/
   rm $login
-  wget https://raw.githubusercontent.com/smicroz/einDa-skin/master/utils/login/login.html
+  wget https://github.com/kexior/da/master/utils/login/login.html
 }
 
 # skin functions
 
 function end(){
   bar
-  echo "Congratulations!!, einDa-skin was installed"
+  echo "Gratulacje!!, kexiorTheme zosta poprawnie zainstalowany!"
   bar
-  echo "Now go to http://yourdomain:2222 and"
-  echo "1 | Join admin account"
-  echo "2 | As reseller, go to the skin manager"
-  echo "3 | Select einDa-skin and apply to me"
+  echo "Teraz przejdź do DA i"
+  echo "1 | Wejdź na konto admina"
+  echo "2 | Poziom reseller -> Menadżer szablonów"
+  echo "3 | Wybierz kexior :)!"
   bar
-  echo "Thanks for using einDa skin"
+  echo "Dziekujemy."
   bar
 }
 
@@ -43,13 +43,13 @@ function joinFolder(){
 }
 
 function install(){
-  echo "Installing..."
-  git clone https://github.com/smicroz/einDa-skin.git
-  chown -R diradmin:diradmin einDa-skin/
+  echo "Instalacja..."
+  git clone https://github.com/kexior/da.git
+  chown -R diradmin:diradmin kexior/
 }
 
 function update(){
-  echo "Updating..."
+  echo "Aktualzizacja..."
   git reset --hard
   git pull
   chown -R diradmin:diradmin *
@@ -63,20 +63,21 @@ bar
 
 joinFolder
 
-directory=einDa-skin
+directory=kexior
 login=./login.html
 
 if [ -d "$directory" ]; then
-  echo "The directory einDa-skin already exists"
+  echo "Folder kexior już istnieje"
   echo -e "\x1B[31m == UPDATE == \x1B[0m"
-  pause 'If you want update the skin, press [Enter] key for continue...'
+  pause 'Kliknij enter, aby zaktualizować.'
   cd $directory/
   update
   # install login template
   login
   
 else
-  pause 'Press [Enter] key for start installation...'
+  pause 'Kliknij enter, aby rozpoczać instalacje.'
   install
   end
 fi
+
