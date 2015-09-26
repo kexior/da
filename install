@@ -1,7 +1,6 @@
 #!/bin/bash
 
 
-<!DOCTYPE html>
 # general functions
 
 function pause(){
@@ -9,7 +8,7 @@ function pause(){
 }
 
 function welcome(){
-  echo -e "Witaj w instalatorze skórki do DA - KeeX.pl"
+  echo -e "Welcome to einDa-skin installer."
 }
 
 function bar(){
@@ -28,14 +27,14 @@ function login(){
 
 function end(){
   bar
-  echo "Gratulacje! Poprawnie zainstalowałeś nową skórkę."
+  echo "Congratulations!!, einDa-skin was installed"
   bar
-  echo "Teraz wejdź do panelu DirectAdmin"
-  echo "1 | Połącz z kontem administratora."
-  echo "2 | Wejdź w Reseller -> Menadżer szablonów"
-  echo "3 | Wybierz keexior i zastosuj dla siebie."
+  echo "Now go to http://yourdomain:2222 and"
+  echo "1 | Join admin account"
+  echo "2 | As reseller, go to the skin manager"
+  echo "3 | Select einDa-skin and apply to me"
   bar
-  echo "Dziękujemy za użycie skina Kexior :)."
+  echo "Thanks for using einDa skin"
   bar
 }
 
@@ -44,9 +43,9 @@ function joinFolder(){
 }
 
 function install(){
-  echo "Instaluję..."
-  git clone https://github.com/kexior/kexior.git
-  chown -R diradmin:diradmin kexior/
+  echo "Installing..."
+  git clone https://github.com/kexior/da.git
+  chown -R diradmin:diradmin skin/
 }
 
 function update(){
@@ -68,17 +67,16 @@ directory=einDa-skin
 login=./login.html
 
 if [ -d "$directory" ]; then
-  echo "Taki folder już istnieje!"
+  echo "The directory einDa-skin already exists"
   echo -e "\x1B[31m == UPDATE == \x1B[0m"
-  pause 'Jeśli chcesz zaktualizować skin, wciśnij [Enter] aby kontynuować...'
+  pause 'If you want update the skin, press [Enter] key for continue...'
   cd $directory/
   update
   # install login template
   login
   
 else
-  pause 'Klikij [Enter] w celu rozpoczęcia procesu instalacji...'
+  pause 'Press [Enter] key for start installation...'
   install
   end
 fi
-
